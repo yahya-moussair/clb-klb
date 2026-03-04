@@ -65,6 +65,7 @@
     --color-cl-beta: var(--color-cl-beta);
     --color-cl-black: var(--color--cl-black);
     --color-cl-white: var(--color-cl-white);
+    --color-cl-blue-light: var(--color-cl-blue-light);
 }
 
 :root {
@@ -72,6 +73,7 @@
     --color-cl-beta: #a1a3a8;
     --color--cl-black: #000000;
     --color-cl-white: #ffffff;
+    --color-cl-blue-light: #e8f1f8;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);

@@ -12,4 +12,5 @@ Route::get('/a-propos', function () {
     return Inertia::render('about/index');
 })->name('about');
 
-require __DIR__.'/settings.php';
+require __DIR__ . '/settings.php';
+require __DIR__ . '/contact.php';
