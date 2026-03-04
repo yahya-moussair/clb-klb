@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import HomeLayout from '@/layouts/HomeLayout';
+import AppLayout from '@/layouts/app-layout';
 import HeroSection from './Partials/HeroSection';
 import WhoWeAreSection from './Partials/WhoWeAreSection';
 import VisionSection from './Partials/VisionSection';
@@ -10,17 +10,17 @@ import PartnersSection from './Partials/PartnersSection';
 function AboutIndex() {
     return (
         <>
-            <Head title="À propos" />
-            <HeroSection />
-            <WhoWeAreSection />
-            <VisionSection />
-            <ActivitiesSection />
-            <TeamSection />
-            <PartnersSection />
+            <AppLayout>
+                <Head title="À propos" />
+                <HeroSection />
+                <WhoWeAreSection />
+                <VisionSection />
+                <ActivitiesSection />
+                <TeamSection />
+                <PartnersSection />
+            </AppLayout>
         </>
     );
 }
-
-AboutIndex.layout = (page) => <HomeLayout>{page}</HomeLayout>;
 
 export default AboutIndex;

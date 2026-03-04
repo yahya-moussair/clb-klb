@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import HomeLayout from '@/layouts/HomeLayout';
+import AppLayout from '@/layouts/app-layout';
 import HeroSection from './Partials/HeroSection';
 import EventsSection from './Partials/EventsSection';
 import StrategicObjectivesSection from './Partials/StrategicObjectivesSection';
@@ -10,17 +10,17 @@ import PartnersSection from './Partials/PartnersSection';
 function HomeIndex() {
     return (
         <>
-            <Head title="Accueil" />
-            <HeroSection />
-            <EventsSection />
-            <StrategicObjectivesSection />
-            <NetworkVideoSection />
-            <TeamSection />
-            <PartnersSection />
+            <AppLayout>
+                <Head title="Accueil" />
+                <HeroSection />
+                <EventsSection />
+                <StrategicObjectivesSection />
+                <NetworkVideoSection />
+                <TeamSection />
+                <PartnersSection />
+            </AppLayout>
         </>
     );
 }
-
-HomeIndex.layout = (page) => <HomeLayout>{page}</HomeLayout>;
 
 export default HomeIndex;
