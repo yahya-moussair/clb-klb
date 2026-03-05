@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import TransText from '@/components/TransText';
 
 /**
  * Blog listing pagination: page numbers as circles, current page in red, "SUIVANT >" link.
@@ -63,7 +64,7 @@ export default function Pagination({ pagination }) {
                     href={next_url}
                     className="ml-2 text-sm font-medium text-foreground hover:text-alpha"
                 >
-                    SUIVANT &gt;
+                    <TransText fr="SUIVANT >" ar="التالي >" nl="VOLGENDE >" />
                 </Link>
             )}
         </nav>

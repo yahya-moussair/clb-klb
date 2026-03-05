@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import TransText from '@/components/TransText';
 
 /**
  * Single blog post card: image, category tag, date • author, title, excerpt, "Lire l'article" link.
@@ -37,7 +38,7 @@ export default function BlogCard({ post }) {
                     href={url}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-alpha"
                 >
-                    LIRE L'ARTICLE
+                    <TransText fr="LIRE L'ARTICLE" ar="اقرأ المقال" nl="LEES HET ARTIKEL" />
                     <svg
                         className="h-4 w-4 text-alpha"
                         fill="none"

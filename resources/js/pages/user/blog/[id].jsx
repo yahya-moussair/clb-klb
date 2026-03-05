@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
+import TransText from '@/components/TransText';
 
 /**
  * Single blog post detail page. Uses AppLayout; content only (no Navbar/Footer here).
@@ -19,7 +20,7 @@ export default function BlogPostShow({ post }) {
                     href="/blogs"
                     className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-alpha"
                 >
-                    ← Retour au blog
+                    <TransText fr="← Retour au blog" ar="← العودة إلى المدونة" nl="← Terug naar blog" />
                 </Link>
                 <div className="mt-6">
                     <span className="rounded bg-alpha/10 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-alpha">

@@ -14,14 +14,21 @@ export default function BlogIndex() {
             <Head title="Blog - Cercle des Lauréats de Belgique" />
             <PageHero
                 subtitle={<TransText fr="Actualité" ar="الأخبار" nl="Nieuws" />}
-                title="Bienvenue sur le blog du Cercle des Lauréats de Belgique"
+                title={
+                    <TransText
+                        fr="Bienvenue sur le blog du Cercle des Lauréats de Belgique"
+                        ar="مرحباً بكم في مدونة دائرة خريجي بلجيكا"
+                        nl="Welkom op de blog van de Cercle des Lauréats de Belgique"
+                    />
+                }
             />
-            <p className="mx-auto max-w-3xl px-4 pt-8 pb-6 text-center text-base text-muted-foreground sm:text-lg">
-                Ici, nous explorons les réussites exceptionnelles qui font la fierté de notre nation.
-                Que vous soyez membre du CLB, aspirant lauréat ou simplement curieux, ce blog est
-                votre passeport pour découvrir les histoires inspirantes et les réalisations
-                extraordinaires qui façonnent l'excellence belge au Maroc.
-            </p>
+            <TransText
+                as="p"
+                className="mx-auto max-w-3xl px-4 pt-8 pb-6 text-center text-base text-muted-foreground sm:text-lg"
+                fr="Ici, nous explorons les réussites exceptionnelles qui font la fierté de notre nation. Que vous soyez membre du CLB, aspirant lauréat ou simplement curieux, ce blog est votre passeport pour découvrir les histoires inspirantes et les réalisations extraordinaires qui façonnent l'excellence belge au Maroc."
+                ar="هنا نستكشف النجاحات الاستثنائية التي تشكل فخر أمتنا. سواء كنت عضواً في CLB أو طالباً للتميز أو ببساطة فضولياً، هذا المدونة هو جواز سفرك لاكتشاف القصص الملهمة والإنجازات الاستثنائية التي تشكل التميز البلجيكي في المغرب."
+                nl="Hier verkennen we de uitzonderlijke successen die de trots van onze natie vormen. Of u nu lid bent van de CLB, aspirant-laureaat of gewoon nieuwsgierig, deze blog is uw paspoort om de inspirerende verhalen en buitengewone prestaties te ontdekken die het Belgische excellentie in Marokko vormgeven."
+            />
             <CategoryFilters categories={categories} currentCategory={currentCategory} />
             <div className="mx-auto max-w-6xl px-4 pb-8">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
