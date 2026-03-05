@@ -2,9 +2,9 @@ import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import BlogsTable from './Partials/BlogsTable';
-import CreateBlogModal from './Partials/CreateBlogModal';
-import EditBlogModal from './Partials/EditBlogModal';
+import BlogsTable from './partials/BlogsTable';
+import CreateBlogModal from './partials/CreateBlogModal';
+import EditBlogModal from './partials/EditBlogModal';
 import { useState } from 'react';
 
 export default function AdminBlogIndex({ blogs = [], activeLocale = 'fr' }) {

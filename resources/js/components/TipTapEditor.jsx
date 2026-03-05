@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 /**
- * TipTap rich text editor using StarterKit. Controlled via value/onChange (HTML string).
+ * TipTap editor with StarterKit (paragraph/enter only). No toolbar, no MenuBar —
+ * looks like a plain bordered textarea. Controlled via value/onChange (HTML string).
  */
 export default function TipTapEditor({ value = '', onChange, placeholder, className, minHeight = '120px' }) {
     const editor = useEditor({
@@ -16,7 +17,7 @@ export default function TipTapEditor({ value = '', onChange, placeholder, classN
         content: value,
         editorProps: {
             attributes: {
-                class: 'prose prose-sm max-w-none focus:outline-none min-h-[80px] px-3 py-2',
+                class: 'focus:outline-none min-h-[80px] px-3 py-2 text-sm',
             },
         },
         onUpdate: ({ editor: ed }) => {
@@ -34,24 +35,23 @@ export default function TipTapEditor({ value = '', onChange, placeholder, classN
 
     if (!editor) {
         return (
-            <div
+            <textarea
+                value={value}
+                onChange={(e) => onChange?.(e.target.value)}
+                placeholder={placeholder || 'Write content…'}
                 className={cn(
-                    'rounded-md border border-input bg-muted/30 text-sm',
+                    'flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
                     className
                 )}
                 style={{ minHeight }}
-            >
-                <div className="text-muted-foreground px-3 py-6 text-center text-sm">
-                    Loading editor…
-                </div>
-            </div>
+            />
         );
     }
 
     return (
         <div
             className={cn(
-                'rounded-md border border-input bg-background text-sm shadow-xs focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2',
+                'rounded-md border border-input bg-background text-sm shadow-xs focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 [&_.ProseMirror]:min-h-[80px]',
                 className
             )}
             style={{ minHeight }}

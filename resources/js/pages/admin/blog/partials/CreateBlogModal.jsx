@@ -8,8 +8,6 @@ import {
     DialogFooter,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import TipTapEditor from '@/components/TipTapEditor';
 import { slugFromTitle, debounce } from '@/components/helpers/helpers';
 import { cn } from '@/lib/utils';
@@ -97,7 +95,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="!w-[80vw] !max-w-[80vw] max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>Create Blog</DialogTitle>
                 </DialogHeader>
@@ -125,56 +123,58 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                         ))}
                     </div>
 
-                    {/* Single visible panel based on activeTab */}
+                    {/* Only render the active panel (no hidden – ensures something is always visible) */}
                     <div className="min-h-[280px] space-y-4">
-                        {LOCALES.map((locale) => (
-                            <div
-                                key={locale}
-                                className={cn('space-y-4', activeTab !== locale && 'hidden')}
-                                role="tabpanel"
-                                aria-hidden={activeTab !== locale}
-                            >
-                                <div>
-                                    <Label htmlFor={`title-${locale}`}>Title</Label>
-                                    <Input
-                                        id={`title-${locale}`}
-                                        value={data.title[locale] ?? ''}
-                                        onChange={(e) => handleTitleChange(locale, e.target.value)}
-                                        className="mt-1"
-                                        aria-invalid={!!errors?.[`title.${locale}`]}
-                                    />
-                                    {errors?.[`title.${locale}`] && (
-                                        <p className="mt-1 text-sm text-destructive">{errors[`title.${locale}`]}</p>
-                                    )}
-                                </div>
-                                <div>
-                                    <Label htmlFor={`slug-${locale}`}>Slug</Label>
-                                    <Input
-                                        id={`slug-${locale}`}
-                                        value={data.slug[locale] ?? ''}
-                                        onChange={(e) => handleSlugChange(locale, e.target.value)}
-                                        className="mt-1"
-                                        aria-invalid={!!errors?.[`slug.${locale}`]}
-                                    />
-                                    {errors?.[`slug.${locale}`] && (
-                                        <p className="mt-1 text-sm text-destructive">{errors[`slug.${locale}`]}</p>
-                                    )}
-                                </div>
-                                <div>
-                                    <Label>Content</Label>
-                                    <div className="mt-1">
-                                        <TipTapEditor
-                                            value={data.body[locale] ?? ''}
-                                            onChange={(html) => setData('body', { ...data.body, [locale]: html })}
-                                            placeholder={`Content in ${locale}`}
+                        {(() => {
+                            const locale = activeTab;
+                            return (
+                                <div key={locale} className="space-y-4">
+                                    <div>
+                                        <label htmlFor={`title-${locale}`} className="text-sm font-medium leading-none">
+                                            Title
+                                        </label>
+                                        <input
+                                            id={`title-${locale}`}
+                                            type="text"
+                                            value={data.title[locale] ?? ''}
+                                            onChange={(e) => handleTitleChange(locale, e.target.value)}
+                                            className="mt-1 flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm"
                                         />
+                                        {errors?.[`title.${locale}`] && (
+                                            <p className="mt-1 text-sm text-destructive">{errors[`title.${locale}`]}</p>
+                                        )}
                                     </div>
-                                    {errors?.[`body.${locale}`] && (
-                                        <p className="mt-1 text-sm text-destructive">{errors[`body.${locale}`]}</p>
-                                    )}
+                                    <div>
+                                        <label htmlFor={`slug-${locale}`} className="text-sm font-medium leading-none">
+                                            Slug
+                                        </label>
+                                        <input
+                                            id={`slug-${locale}`}
+                                            type="text"
+                                            value={data.slug[locale] ?? ''}
+                                            onChange={(e) => handleSlugChange(locale, e.target.value)}
+                                            className="mt-1 flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm"
+                                        />
+                                        {errors?.[`slug.${locale}`] && (
+                                            <p className="mt-1 text-sm text-destructive">{errors[`slug.${locale}`]}</p>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <span className="text-sm font-medium leading-none">Content</span>
+                                        <div className="mt-1">
+                                            <TipTapEditor
+                                                value={data.body[locale] ?? ''}
+                                                onChange={(html) => setData('body', { ...data.body, [locale]: html })}
+                                                placeholder={`Content in ${locale}`}
+                                            />
+                                        </div>
+                                        {errors?.[`body.${locale}`] && (
+                                            <p className="mt-1 text-sm text-destructive">{errors[`body.${locale}`]}</p>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })()}
                     </div>
 
                     <DialogFooter>
