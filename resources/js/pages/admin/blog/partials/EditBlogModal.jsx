@@ -15,9 +15,9 @@ import { slugFromTitle, debounce } from '@/components/helpers/helpers';
 import { cn } from '@/lib/utils';
 
 const LOCALES = [
-    { key: 'ar', label: 'AR' },
-    { key: 'fr', label: 'FR' },
-    { key: 'nl', label: 'NL' },
+    { key: 'ar', label: 'Arabic (اللغة العربية)' },
+    { key: 'fr', label: 'Français' },
+    { key: 'nl', label: 'Nederlands' },
 ];
 
 const emptyLocale = () => ({ ar: '', fr: '', nl: '' });
