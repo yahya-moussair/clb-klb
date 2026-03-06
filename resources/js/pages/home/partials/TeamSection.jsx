@@ -1,11 +1,15 @@
 import TransText from '@/components/TransText';
 
 const team = [
-    { name: 'Mariam Talal', imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop' },
-    { name: 'Othmane Lahlou', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop' },
-    { name: 'Anass Boufous', imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop' },
-    { name: 'Amine Belfakir', imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop' },
-    { name: 'Yassine El Khattabi', imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop' },
+    { name: 'Abdessamad Ben Moumen', imageUrl: '/images/team/Abdessamad-Ben-Moumen.jpg' },
+    { name: 'Chiraz', imageUrl: '/images/team/Chiraz-Delegation-Wallonie-Bruxelles.jpg' },
+    { name: 'Driss El Yazami', imageUrl: '/images/team/Driss-ElYazami.jpg' },
+    { name: 'François De Vrije', imageUrl: '/images/team/François-DeVrije-Hub-Brussels.jpg' },
+    { name: 'Gilles Heyvaert', imageUrl: '/images/team/Gilles-Heyvaert-Ambassadeur.jpg' },
+    { name: 'Merouane Touali', imageUrl: '/images/team/Merouane-Touali.jpg' },
+    { name: 'Mohamed Rhachi', imageUrl: '/images/team/Mohamed-Rhachi-Universite-Mohammed-V.jpg' },
+    { name: 'Nadia Sentissi', imageUrl: '/images/team/Nadia-Sentissi.jpg' },
+    { name: 'Sarah Bentefrit', imageUrl: '/images/team/Sarah-Bentefrit.jpg' },
 ];
 
 export default function TeamSection() {
@@ -24,8 +28,8 @@ export default function TeamSection() {
                             <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-border bg-muted sm:h-32 sm:w-32">
                                 <img
                                     src={member.imageUrl}
-                                    alt=""
-                                    className="h-full w-full object-cover"
+                                    alt={member.name}
+                                    className="h-full w-full object-cover object-center"
                                 />
                             </div>
                             <p className="mt-3 font-bold text-foreground">{member.name}</p>
