@@ -8,23 +8,23 @@ const aboutText = {
 
 export default function WhoWeAreSection() {
     return (
-        <section className="border-b border-border bg-background py-16 lg:py-24">
-            <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-muted shadow-md">
+        <section className="border-b border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-6">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-muted shadow-[var(--shadow-card)]">
                     <img
-                        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-                        alt=""
-                        className="h-full w-full object-cover"
+                        src="/images/about-team.png"
+                        alt="Équipe CLB KLB"
+                        className="h-full w-full object-cover object-center"
                     />
                 </div>
                 <div className="flex flex-col justify-center">
-                    <p className="text-sm font-medium uppercase tracking-wider text-alpha">
-                        <TransText fr="About us" ar="عنا" nl="Over ons" as="span" />
-                    </p>
-                    <h2 className="mt-2 text-3xl font-bold text-foreground lg:text-4xl">
-                        <TransText fr="Qui sommes nous" ar="من نحن" nl="Wie zijn we" as="span" />
+                    <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                        <TransText fr="Qui sommes-nous" ar="من نحن" nl="Wie zijn we" as="span" />
+                    </span>
+                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+                        <TransText fr="Qui sommes-nous" ar="من نحن" nl="Wie zijn we" as="span" />
                     </h2>
-                    <p className="mt-6 leading-relaxed text-foreground/90">
+                    <p className="mt-6 leading-relaxed text-muted-foreground">
                         <TransText fr={aboutText.fr} ar={aboutText.ar} nl={aboutText.nl} as="span" />
                     </p>
                 </div>

@@ -4,28 +4,23 @@ const DEFAULT_BACKGROUND_IMAGE =
 /**
  * Reusable page hero: full-width dark section with optional background image,
  * subtitle and title. Use at the top of every non-home page (À propos, Contact, etc.).
- * subtitle and title can be strings or React nodes (e.g. <TransText />).
- *
- * @param {React.ReactNode} [subtitle] - Optional small uppercase text above the title
- * @param {React.ReactNode} title - Main heading
- * @param {string} [backgroundImage] - Optional image URL (defaults to shared stock image)
  */
 export default function PageHero({ subtitle, title, backgroundImage = DEFAULT_BACKGROUND_IMAGE }) {
     return (
-        <section className="relative flex min-h-[50vh] items-center justify-center bg-cl-black px-4 pt-24 pb-16">
+        <section className="relative flex min-h-[45vh] items-center justify-center bg-foreground px-4 pt-28 pb-20">
             <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
             />
-            <div className="absolute inset-0 bg-cl-black/70" />
-            <div className="relative z-10 mx-auto max-w-4xl text-center">
+            <div className="absolute inset-0 bg-foreground/85" />
+            <div className="relative z-10 mx-auto max-w-3xl text-center">
                 {subtitle && (
-                    <p className="text-sm font-medium uppercase tracking-wider text-cl-white/80">
+                    <p className="text-sm font-medium uppercase tracking-wider text-white/70">
                         {subtitle}
                     </p>
                 )}
                 <h1
-                    className={`text-4xl font-bold uppercase tracking-tight text-cl-white sm:text-5xl lg:text-6xl ${subtitle ? 'mt-3' : ''}`}
+                    className={`font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl ${subtitle ? 'mt-3' : ''}`}
                 >
                     {title}
                 </h1>

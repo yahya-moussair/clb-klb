@@ -9,30 +9,30 @@ const activitiesText = {
 
 export default function ActivitiesSection() {
     return (
-        <section className="bg-cl-black py-16 lg:py-24">
-            <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <section className="border-b border-border bg-foreground py-20 lg:py-28">
+            <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-6">
                 <div className="flex flex-col justify-center">
-                    <p className="text-sm font-medium uppercase tracking-wider text-alpha">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                         <TransText fr="Nos activités" ar="أنشطتنا" nl="Onze activiteiten" as="span" />
-                    </p>
-                    <h2 className="mt-2 text-3xl font-bold text-cl-white lg:text-4xl">
-                        <TransText fr="Activités et Actions" ar="الأنشطة والإجراءات" nl="Activiteiten en acties" as="span" />
+                    </span>
+                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white lg:text-4xl">
+                        <TransText fr="Activités et actions" ar="الأنشطة والإجراءات" nl="Activiteiten en acties" as="span" />
                     </h2>
-                    <p className="mt-6 leading-relaxed text-cl-white/90">
+                    <p className="mt-6 leading-relaxed text-white/80">
                         <TransText fr={activitiesText.fr} ar={activitiesText.ar} nl={activitiesText.nl} as="span" />
                     </p>
                     <Link
                         href="#"
-                        className="mt-8 inline-block w-fit rounded-lg bg-alpha px-6 py-3 text-sm font-medium uppercase text-cl-white transition hover:opacity-95"
+                        className="mt-8 inline-block w-fit rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-95"
                     >
-                        <TransText fr="EN SAVOIR PLUS" ar="اعرف المزيد" nl="MEER WETEN" as="span" />
+                        <TransText fr="En savoir plus" ar="اعرف المزيد" nl="Meer weten" as="span" />
                     </Link>
                 </div>
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
                     <img
-                        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-                        alt=""
-                        className="h-full w-full object-cover"
+                        src="/images/about-team.png"
+                        alt="Équipe CLB KLB"
+                        className="h-full w-full object-cover object-center"
                     />
                 </div>
             </div>

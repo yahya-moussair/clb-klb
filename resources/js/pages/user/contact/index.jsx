@@ -6,8 +6,6 @@ import ContactHeroSection from './Partials/ContactHeroSection';
 import ContactFormSection from './Partials/ContactFormSection';
 
 function ContactIndex({ contact }) {
-    console.log(contact);
-    
     return (
         <>
             <AppLayout>

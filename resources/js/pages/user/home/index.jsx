@@ -4,8 +4,8 @@ import HeroSection from './Partials/HeroSection';
 import EventsSection from './Partials/EventsSection';
 import StrategicObjectivesSection from './Partials/StrategicObjectivesSection';
 import NetworkVideoSection from './Partials/NetworkVideoSection';
-import TeamSection from './Partials/TeamSection';
-import PartnersSection from './Partials/PartnersSection';
+import TeamSection from '@/components/TeamSection';
+import PartnersSection from '@/components/PartnersSection';
 
 function HomeIndex({ teamMembers = [], partners = [], recentEvents = [] }) {
     return (

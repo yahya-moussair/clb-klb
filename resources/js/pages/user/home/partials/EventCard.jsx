@@ -20,7 +20,7 @@ export function FeaturedEventCard({ event }) {
     const tag = pick(event.tag, locale);
 
     return (
-        <article className="overflow-hidden rounded-2xl bg-card shadow-md transition hover:shadow-lg">
+        <article className="overflow-hidden rounded-2xl bg-card shadow-[var(--shadow-card)] transition hover:shadow-[var(--shadow-card-hover)]">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
                 {imageUrl && (
                     <img
@@ -29,22 +29,22 @@ export function FeaturedEventCard({ event }) {
                         className="h-full w-full object-cover"
                     />
                 )}
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-cl-black/90 via-cl-black/40 to-transparent p-6">
-                    <span className="mb-1 text-sm font-medium uppercase tracking-wide text-cl-white/90">
+                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-foreground/95 via-foreground/50 to-transparent p-6">
+                    <span className="mb-1 text-sm font-medium text-white/80">
                         {subtitle}
                     </span>
-                    <h3 className="text-xl font-bold text-cl-white lg:text-2xl">{title}</h3>
-                    {moderator ? <p className="mt-1 text-sm text-cl-white/90">{moderator}</p> : null}
+                    <h3 className="text-xl font-semibold text-white lg:text-2xl">{title}</h3>
+                    {moderator ? <p className="mt-1 text-sm text-white/80">{moderator}</p> : null}
                 </div>
                 {tag && (
-                    <span className="absolute right-4 top-4 rounded bg-alpha px-2 py-1 text-xs font-medium text-cl-white">
+                    <span className="absolute right-4 top-4 rounded-lg bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground">
                         {tag}
                     </span>
                 )}
             </div>
             <div className="flex flex-wrap items-center gap-4 border-b border-border p-4">
                 <span className="flex items-center gap-2 text-sm text-foreground">
-                    <svg className="h-4 w-4 text-alpha" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     {date}
@@ -53,7 +53,7 @@ export function FeaturedEventCard({ event }) {
                 <span className="text-sm font-medium text-foreground">{location}</span>
             </div>
             <div className="p-4">
-                <Link href={href} className="text-sm font-medium text-alpha hover:underline">
+                <Link href={href} className="text-sm font-medium text-primary hover:underline">
                     {locale === 'fr' && "Voir l'événement →"}
                     {locale === 'ar' && 'عرض الفعالية ←'}
                     {locale === 'nl' && 'Bekijk evenement →'}
@@ -74,7 +74,7 @@ export function SmallEventCard({ event }) {
     return (
         <Link
             href={href}
-            className="flex gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 shadow-sm transition hover:border-alpha/20 hover:shadow-md"
+            className="flex gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-card)] transition hover:border-primary/20 hover:shadow-[var(--shadow-card-hover)]"
         >
             <div className="h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-muted">
                 {imageUrl && (
@@ -82,7 +82,7 @@ export function SmallEventCard({ event }) {
                 )}
             </div>
             <div className="min-w-0 flex-1">
-                <h4 className="font-bold text-foreground">{title}</h4>
+                <h4 className="font-semibold text-foreground">{title}</h4>
                 {subtitle && (
                     <p className="text-sm text-muted-foreground">{subtitle}</p>
                 )}

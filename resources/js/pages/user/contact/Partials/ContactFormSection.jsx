@@ -33,37 +33,37 @@ export default function ContactFormSection() {
     }
 
     return (
-        <section className="border-b border-border bg-background py-16 lg:py-24">
-            <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <section className="border-b border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-6xl px-4 lg:px-6">
                 <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
                     <div>
-                        <p className="text-sm font-semibold uppercase tracking-wider text-alpha">
-                            <TransText fr="RESTONS CONNECTÉS" ar="لنبق على تواصل" nl="BLIJF VERBONDEN" as="span" />
-                        </p>
-                        <h2 className="mt-2 text-3xl font-bold text-foreground lg:text-4xl">
-                            <TransText fr="Contactez-Nous" ar="اتصل بنا" nl="Contacteer ons" as="span" />
+                        <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                            <TransText fr="Restons connectés" ar="لنبق على تواصل" nl="Blijf verbonden" as="span" />
+                        </span>
+                        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+                            <TransText fr="Contactez-nous" ar="اتصل بنا" nl="Contacteer ons" as="span" />
                         </h2>
-                        <p className="mt-6 leading-relaxed text-foreground/90">
+                        <p className="mt-6 leading-relaxed text-muted-foreground">
                             <TransText fr={introText.fr} ar={introText.ar} nl={introText.nl} as="span" />
                         </p>
-                        <p className="mt-8 text-sm font-semibold uppercase tracking-wider text-alpha">
-                            <TransText fr="SUIVEZ-NOUS" ar="تابعنا" nl="VOLG ONS" as="span" />
+                        <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            <TransText fr="Suivez-nous" ar="تابعنا" nl="Volg ons" as="span" />
                         </p>
-                        <div className="mt-4 flex gap-4">
+                        <div className="mt-4 flex gap-3">
                             {socialLinks.map(({ name, href, icon: Icon }) => (
                                 <a
                                     key={name}
                                     href={href}
-                                    className="text-muted-foreground transition hover:text-foreground"
+                                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted text-muted-foreground transition hover:bg-primary hover:text-primary-foreground"
                                     aria-label={name}
                                 >
-                                    <Icon className="h-6 w-6" />
+                                    <Icon className="h-5 w-5" />
                                 </a>
                             ))}
                         </div>
                     </div>
 
-                    <div className="rounded-xl border border-border bg-muted/50 p-6 shadow-sm lg:p-8">
+                    <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] lg:p-8">
                         <h3 className="text-xl font-semibold text-foreground">
                             <TransText fr="Envoyez-nous un message" ar="أرسل لنا رسالة" nl="Stuur ons een bericht" as="span" />
                         </h3>
@@ -74,7 +74,7 @@ export default function ContactFormSection() {
                                         htmlFor="contact-name"
                                         className="mb-1 block text-sm font-medium text-foreground"
                                     >
-                                        <TransText fr="Nom Complet" ar="الاسم الكامل" nl="Volledige naam" as="span" />
+                                        <TransText fr="Nom complet" ar="الاسم الكامل" nl="Volledige naam" as="span" />
                                     </label>
                                     <input
                                         id="contact-name"
@@ -82,7 +82,7 @@ export default function ContactFormSection() {
                                         placeholder="Jean Dupont"
                                         value={data.name}
                                         onChange={(e) => setData('name', e.target.value)}
-                                        className="w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                                        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                                         autoComplete="name"
                                     />
                                     {errors.name && (
@@ -102,7 +102,7 @@ export default function ContactFormSection() {
                                         placeholder="jean@exemple.com"
                                         value={data.email}
                                         onChange={(e) => setData('email', e.target.value)}
-                                        className="w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                                        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                                         autoComplete="email"
                                     />
                                     {errors.email && (
@@ -123,7 +123,7 @@ export default function ContactFormSection() {
                                     placeholder="Objet de votre message"
                                     value={data.subject}
                                     onChange={(e) => setData('subject', e.target.value)}
-                                    className="w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                                    className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                                 />
                                 {errors.subject && (
                                     <p className="mt-1 text-sm text-destructive">{errors.subject}</p>
@@ -142,7 +142,7 @@ export default function ContactFormSection() {
                                     placeholder="Votre message ici..."
                                     value={data.message}
                                     onChange={(e) => setData('message', e.target.value)}
-                                    className="w-full resize-y rounded-lg border border-input bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                                    className="w-full resize-y rounded-lg border border-input bg-background px-3 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                                 />
                                 {errors.message && (
                                     <p className="mt-1 text-sm text-destructive">{errors.message}</p>
@@ -152,9 +152,9 @@ export default function ContactFormSection() {
                                 <button
                                     type="submit"
                                     disabled={processing}
-                                    className="w-full rounded-lg bg-alpha px-4 py-3 text-sm font-medium uppercase text-cl-white transition hover:opacity-95 disabled:opacity-70 sm:w-auto"
+                                    className="rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-95 disabled:opacity-70"
                                 >
-                                    {processing ? (locale === 'ar' ? 'جاري الإرسال...' : locale === 'nl' ? 'Verzenden...' : 'Envoi...') : (locale === 'ar' ? 'إرسال' : locale === 'nl' ? 'VERSTUREN' : 'ENVOYER')}
+                                    {processing ? (locale === 'ar' ? 'جاري الإرسال...' : locale === 'nl' ? 'Verzenden...' : 'Envoi...') : (locale === 'ar' ? 'إرسال' : locale === 'nl' ? 'Versturen' : 'Envoyer')}
                                 </button>
                             </div>
                         </form>
