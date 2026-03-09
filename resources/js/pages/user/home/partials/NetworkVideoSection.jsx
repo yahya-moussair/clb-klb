@@ -65,10 +65,11 @@ export default function NetworkVideoSection() {
     const videoTitleText = pick(videoTitle, locale);
 
     return (
-        <section className="bg-cl-black py-16 lg:py-24">
-            <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <section className="relative overflow-hidden bg-cl-black py-16 lg:py-24">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(232,17,35,0.12),transparent)]" />
+            <div className="relative mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
                 <div className="flex flex-col justify-center">
-                    <p className="text-sm font-medium tracking-wider text-cl-beta uppercase">
+                    <p className="text-sm font-semibold tracking-[0.15em] text-alpha uppercase">
                         <TransText
                             fr="À propos de nous"
                             ar="عنا"
@@ -76,17 +77,21 @@ export default function NetworkVideoSection() {
                             as="span"
                         />
                     </p>
-                    <h2 className="mt-2 text-3xl font-bold text-cl-white lg:text-4xl">
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight text-cl-white lg:text-4xl">
                         {slideTitle}
                     </h2>
-                    <p className="mt-4 text-cl-white/90">{slideBody}</p>
+                    <div className="mt-3 h-0.5 w-12 rounded-full bg-alpha" />
+                    <p className="mt-4 max-w-lg text-base leading-relaxed text-cl-white/90">{slideBody}</p>
                     <Link
                         href={slide.ctaHref}
-                        className="mt-6 inline-block w-fit rounded-lg bg-alpha px-6 py-3 text-sm font-medium text-cl-white transition hover:opacity-95"
+                        className="mt-6 inline-flex w-fit items-center gap-2 rounded-lg bg-alpha px-6 py-3.5 text-sm font-semibold text-cl-white shadow-lg transition hover:bg-alpha/90"
                     >
                         {slideCta}
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                     </Link>
-                    <div className="mt-8 flex items-center gap-2 text-sm text-cl-white/70">
+                    <div className="mt-8 flex items-center gap-3">
                         <button
                             type="button"
                             onClick={() =>
@@ -94,7 +99,7 @@ export default function NetworkVideoSection() {
                                     s === 0 ? totalSlides - 1 : s - 1,
                                 )
                             }
-                            className="rounded p-1 transition hover:bg-white/10"
+                            className="flex h-10 w-10 items-center justify-center rounded-full border border-cl-white/30 text-cl-white transition hover:border-alpha hover:bg-alpha/20"
                             aria-label={
                                 locale === 'fr'
                                     ? 'Slide précédent'
@@ -103,22 +108,12 @@ export default function NetworkVideoSection() {
                                       : 'Vorige slide'
                             }
                         >
-                            <svg
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M15 19l-7-7 7-7"
-                                />
+                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <span>
-                            {currentSlide + 1} sur {totalSlides}
+                        <span className="min-w-[4rem] text-center text-sm font-medium text-cl-white/80">
+                            {currentSlide + 1} / {totalSlides}
                         </span>
                         <button
                             type="button"
@@ -127,7 +122,7 @@ export default function NetworkVideoSection() {
                                     s === totalSlides - 1 ? 0 : s + 1,
                                 )
                             }
-                            className="rounded p-1 transition hover:bg-white/10"
+                            className="flex h-10 w-10 items-center justify-center rounded-full border border-cl-white/30 text-cl-white transition hover:border-alpha hover:bg-alpha/20"
                             aria-label={
                                 locale === 'fr'
                                     ? 'Slide suivant'
@@ -136,23 +131,13 @@ export default function NetworkVideoSection() {
                                       : 'Volgende slide'
                             }
                         >
-                            <svg
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                />
+                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
                 </div>
-                <div className="relative aspect-video overflow-hidden rounded-xl bg-cl-black">
+                <div className="relative aspect-video overflow-hidden rounded-2xl border border-cl-white/10 bg-cl-black shadow-2xl">
                     <a
                         href={videoUrl || '#'}
                         target={videoUrl ? '_blank' : undefined}
@@ -162,19 +147,15 @@ export default function NetworkVideoSection() {
                         <img
                             src={videoPlaceholderUrl}
                             alt=""
-                            className="absolute inset-0 h-full w-full object-cover opacity-80"
+                            className="absolute inset-0 h-full w-full object-cover opacity-85"
                         />
-                        <span className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-alpha/90 text-cl-white transition hover:bg-alpha">
-                            <svg
-                                className="ml-1 h-8 w-8"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                            >
+                        <span className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-alpha text-cl-white shadow-lg transition hover:scale-105 hover:bg-alpha/90">
+                            <svg className="ml-1 h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z" />
                             </svg>
                         </span>
                     </a>
-                    <p className="absolute right-0 bottom-0 left-0 bg-cl-black/80 p-4 text-sm text-cl-white">
+                    <p className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-cl-black/95 to-transparent p-5 text-sm font-medium text-cl-white">
                         {videoTitleText}
                     </p>
                 </div>

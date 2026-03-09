@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LocaleController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::post('/locale', [LocaleController::class, 'store'])->name('locale.store');
 
-Route::get('/', function () {
-    return Inertia::render('user/home/index');
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/a-propos', function () {
     return Inertia::render('user/about/index');

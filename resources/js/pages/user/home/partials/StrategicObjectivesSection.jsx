@@ -68,24 +68,25 @@ const objectives = [
 
 export default function StrategicObjectivesSection() {
     return (
-        <section className="border-b border-border bg-background py-16 lg:py-24">
+        <section id="objectifs" className="scroll-mt-20 border-b border-border bg-background py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
-                <p className="text-center text-sm font-medium tracking-wider text-cl-beta uppercase">
+                <p className="text-center text-sm font-semibold tracking-[0.15em] text-alpha uppercase">
                     <TransText
-                        fr="Nos Missions"
+                        fr="Nos missions"
                         ar="مهامنا"
                         nl="Onze missies"
                         as="span"
                     />
                 </p>
-                <h2 className="mt-2 text-center text-3xl font-bold text-foreground lg:text-4xl">
+                <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
                     <TransText
-                        fr="Nos Objectifs Stratégiques"
+                        fr="Nos objectifs"
                         ar="أهدافنا الاستراتيجية"
                         nl="Onze strategische doelstellingen"
                         as="span"
                     />
                 </h2>
+                <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-alpha" />
                 <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {objectives.map((obj, i) => (
                         <ObjectiveBlock key={i} {...obj} />

@@ -45,12 +45,7 @@ function FieldError({ id, message }) {
 
 function FieldLabel({ children, className }) {
     return (
-        <span
-            className={cn(
-                'mb-1.5 block text-xs font-semibold tracking-widest text-muted-foreground uppercase',
-                className,
-            )}
-        >
+        <span className={cn('mb-1.5 block text-xs text-muted-foreground', className)}>
             {children}
         </span>
     );
@@ -143,7 +138,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                 <DialogHeader className="flex-shrink-0 border-b border-border px-6 pt-6 pb-4">
                     <div className="flex items-start justify-between gap-4">
                         <div>
-                            <DialogTitle className="text-lg font-semibold">
+                            <DialogTitle className="text-lg">
                                 New Blog Post
                             </DialogTitle>
                             <p className="mt-0.5 text-sm text-muted-foreground">
@@ -160,7 +155,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                                     <span
                                         key={key}
                                         className={cn(
-                                            'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium transition-colors',
+                                            'inline-flex items-center rounded-full px-2 py-0.5 text-xs transition-colors',
                                             done
                                                 ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400'
                                                 : 'bg-muted text-muted-foreground',
@@ -200,17 +195,17 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                                 type="button"
                                 onClick={() => setActiveTab(key)}
                                 className={cn(
-                                    'relative inline-flex items-center gap-1.5 rounded-lg px-4 py-1.5 text-sm font-medium transition-all duration-150',
+                                    'relative inline-flex items-center gap-1.5 rounded-lg px-4 py-1.5 text-sm transition-all duration-150',
                                     'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-none',
                                     activeTab === key
                                         ? 'border border-border bg-background text-foreground shadow-sm'
                                         : 'text-muted-foreground hover:bg-background/60 hover:text-foreground',
                                 )}
                             >
-                                <span className="font-mono text-xs font-bold">
+                                <span className="text-xs">
                                     {label}
                                 </span>
-                                <span className="hidden text-xs font-normal opacity-70 sm:inline">
+                                <span className="hidden text-xs opacity-70 sm:inline">
                                     {fullLabel}
                                 </span>
                                 {hasTabError(key) && (
@@ -267,7 +262,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                                             </svg>
                                         </div>
                                         <div className="min-w-0 flex-1">
-                                            <p className="truncate text-sm font-medium text-foreground">
+                                            <p className="truncate text-sm text-foreground">
                                                 {data.image.name}
                                             </p>
                                             <p className="text-xs text-muted-foreground">
@@ -294,7 +289,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                                             />
                                         </svg>
                                         <p className="text-sm text-muted-foreground">
-                                            <span className="font-medium text-foreground">
+                                            <span className="text-foreground">
                                                 Click to upload
                                             </span>{' '}
                                             or drag & drop
@@ -356,7 +351,7 @@ export default function CreateBlogModal({ open, onOpenChange }) {
                                     }
                                     placeholder="my-post-slug"
                                     className={cn(
-                                        'flex h-10 w-full rounded-lg border bg-transparent py-2 pr-3.5 pl-6 font-mono text-sm placeholder:text-muted-foreground/40',
+                                        'flex h-10 w-full rounded-lg border bg-transparent py-2 pr-3.5 pl-6 text-sm placeholder:text-muted-foreground/40',
                                         'transition-all duration-150 outline-none',
                                         'focus:border-ring/60 focus:ring-2 focus:ring-ring/40',
                                         errors?.[`slug.${locale}`]

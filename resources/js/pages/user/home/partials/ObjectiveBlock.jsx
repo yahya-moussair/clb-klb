@@ -122,12 +122,13 @@ export default function ObjectiveBlock({ iconKey, title, description }) {
     };
     const icon = icons[iconKey] || icons.promote;
     return (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm transition hover:shadow-md">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-muted text-alpha">
+        <div className="group relative rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-alpha/30 hover:shadow-lg">
+            <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-alpha opacity-0 transition group-hover:opacity-100" />
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-alpha/10 text-alpha transition group-hover:bg-alpha group-hover:text-cl-white">
                 {icon}
             </div>
-            <h3 className="text-lg font-bold text-foreground">{titleText}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{descText}</p>
+            <h3 className="text-lg font-bold tracking-tight text-foreground">{titleText}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{descText}</p>
         </div>
     );
 }

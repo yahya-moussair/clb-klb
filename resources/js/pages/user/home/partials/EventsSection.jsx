@@ -79,24 +79,25 @@ const smallEvents = [
 
 export default function EventsSection() {
     return (
-        <section className="border-b border-border bg-background py-16 lg:py-24">
+        <section className="border-b border-border bg-cl-blue-light/30 py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
-                <p className="text-center text-sm font-medium tracking-wider text-cl-beta uppercase">
+                <p className="text-center text-sm font-semibold tracking-[0.15em] text-alpha uppercase">
                     <TransText
-                        fr="Nos Événements"
-                        ar="فعالياتنا"
-                        nl="Onze evenementen"
+                        fr="Nos Actualités"
+                        ar="أخبارنا"
+                        nl="Onze actualiteiten"
                         as="span"
                     />
                 </p>
-                <h2 className="mt-2 text-center text-3xl font-bold text-foreground lg:text-4xl">
+                <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
                     <TransText
-                        fr="Événements Récents"
+                        fr="Événements récents"
                         ar="أحدث الفعاليات"
                         nl="Recente evenementen"
                         as="span"
                     />
                 </h2>
+                <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-alpha" />
                 <div className="mt-12 grid gap-8 lg:grid-cols-3">
                     <div className="lg:col-span-2">
                         <FeaturedEventCard event={featuredEvent} />
@@ -107,29 +108,19 @@ export default function EventsSection() {
                         ))}
                     </div>
                 </div>
-                <div className="mt-10 text-center">
+                <div className="mt-12 text-center">
                     <Link
-                        href="#"
-                        className="inline-flex items-center gap-2 text-base font-medium text-alpha hover:underline"
+                        href="/blogs"
+                        className="inline-flex items-center gap-2 rounded-lg border-2 border-alpha bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-alpha transition hover:bg-alpha hover:text-cl-white focus:outline-none focus:ring-2 focus:ring-alpha focus:ring-offset-2"
                     >
                         <TransText
-                            fr="VOIR TOUT L'AGENDA"
+                            fr="Voir tout l'agenda"
                             ar="عرض كل الأجندة"
-                            nl="BEKIJK VOLLEDIGE AGENDA"
+                            nl="Volledige agenda bekijken"
                             as="span"
                         />
-                        <svg
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </Link>
                 </div>
