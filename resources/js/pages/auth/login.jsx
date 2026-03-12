@@ -4,17 +4,12 @@ import { register } from '@/routes';
 import { store } from '@/routes/login';
 
 import { request } from '@/routes/password';
-type Props = {
-    status?: string;
-    canResetPassword: boolean;
-    canRegister: boolean;
-};
 
 export default function Login({
     status,
     canResetPassword,
     canRegister,
-}: Props) {
+}) {
     return (
         <>
             <Head title="Connexion" />
