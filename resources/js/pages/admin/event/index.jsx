@@ -60,13 +60,13 @@ export default function AdminEventIndex({ events }) {
                         {
                             header: 'Title',
                             cellClassName: 'font-semibold text-foreground',
-                            render: (event) => event.title.fr,
+                            render: (event) => event?.title?.fr ?? '',
                         },
                         {
                             header: 'Category',
                             render: (event) => (
                                 <span className="inline-block rounded-full bg-alpha/10 px-2.5 py-0.5 text-xs font-medium text-alpha">
-                                    {event.category.fr}
+                                    {event?.categorie?.fr ?? ''}
                                 </span>
                             ),
                         },
@@ -96,11 +96,28 @@ export default function AdminEventIndex({ events }) {
                                     : 'Free',
                         },
                         {
+                            header: 'Participants',
+                            render: (event) => event.participants_count ?? 0,
+                        },
+                        {
                             header: 'Actions',
                             headerClassName: 'text-right',
                             cellClassName: 'text-right',
                             render: (event) => (
                                 <div className="flex items-center justify-end gap-2">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        asChild
+                                    >
+                                        <Link
+                                            href={`/admin/participants?event_id=${event.id}`}
+                                        >
+                                            <CalendarDays className="mr-1 h-3.5 w-3.5" />
+                                            Participants
+                                        </Link>
+                                    </Button>
                                     <Button
                                         variant="outline"
                                         size="sm"

@@ -32,11 +32,7 @@ const mainNavItems: NavItem[] = [
         href: '/admin/events',
         icon: CalendarDays,
     },
-    {
-        title: 'Participants',
-        href: '/admin/participants',
-        icon: Users,
-    },
+
     {
         title: 'Team',
         href: '/admin/team',

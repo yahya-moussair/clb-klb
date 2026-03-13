@@ -43,10 +43,10 @@ class EventController extends Controller
             'description.nl' => 'nullable|string',
             'date' => 'required|date',
             'time' => 'required',
-            'category' => 'required|array',
-            'category.fr' => 'required|string|max:255',
-            'category.ar' => 'nullable|string|max:255',
-            'category.nl' => 'nullable|string|max:255',
+            'categorie' => 'required|array',
+            'categorie.fr' => 'required|string|max:255',
+            'categorie.ar' => 'nullable|string|max:255',
+            'categorie.nl' => 'nullable|string|max:255',
             'price' => 'required|integer|min:0',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
             'location' => 'required|string|max:255',
@@ -96,10 +96,10 @@ class EventController extends Controller
             'description.nl' => 'nullable|string',
             'date' => 'required|date',
             'time' => 'required',
-            'category' => 'required|array',
-            'category.fr' => 'required|string|max:255',
-            'category.ar' => 'nullable|string|max:255',
-            'category.nl' => 'nullable|string|max:255',
+            'categorie' => 'required|array',
+            'categorie.fr' => 'required|string|max:255',
+            'categorie.ar' => 'nullable|string|max:255',
+            'categorie.nl' => 'nullable|string|max:255',
             'price' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
             'location' => 'required|string|max:255',
@@ -132,7 +132,7 @@ class EventController extends Controller
      */
     public function adminIndex()
     {
-        $events = Event::latest()->get();
+        $events = Event::withCount('participants')->latest()->get();
 
         return inertia('admin/event/index', [
             'events' => $events,
