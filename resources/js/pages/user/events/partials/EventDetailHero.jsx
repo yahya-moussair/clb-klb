@@ -36,13 +36,20 @@ export function EventDetailHero({ event }) {
         });
     };
 
+    const imageUrl =
+        !event?.image
+            ? 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1600&q=80'
+            : event.image.startsWith('http')
+                ? event.image
+                : `/storage/${event.image}`;
+
     return (
         <section className="relative overflow-hidden">
             <div className="absolute inset-0">
                 <div
                     className="h-full w-full bg-cover bg-center"
                     style={{
-                        backgroundImage: `url(${event.image || 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1600&q=80'})`,
+                        backgroundImage: `url(${imageUrl})`,
                     }}
                 />
                 <div className="absolute inset-0 bg-cl-black/60" />

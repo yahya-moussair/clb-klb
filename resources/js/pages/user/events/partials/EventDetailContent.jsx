@@ -1,6 +1,8 @@
 import TransText from '@/components/TransText';
+import { useTrans } from '@/hooks/use-trans';
 
 export function EventDetailContent({ event }) {
+    const { t } = useTrans();
     console.log(event);
     return (
         <section className="bg-background py-12 lg:py-20">

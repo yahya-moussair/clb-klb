@@ -62,18 +62,7 @@ export default function AdminParticipantIndex({
                             View and manage event registrations
                         </p>
                     </div>
-                    <select
-                        className="rounded-lg border border-input bg-background px-4 py-2 text-sm shadow-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
-                        value={selectedEventId || ''}
-                        onChange={handleFilterChange}
-                    >
-                        <option value="">All Events</option>
-                        {events.map((event) => (
-                            <option key={event.id} value={event.id}>
-                                <TransText {...event.title} />
-                            </option>
-                        ))}
-                    </select>
+           
                 </div>
 
                 {/* Participants Table */}
