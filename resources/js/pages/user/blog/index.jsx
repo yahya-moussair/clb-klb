@@ -9,7 +9,6 @@ import Pagination from './partials/Pagination';
  * App\Http\Controllers\User\BlogController::index (published blogs, current locale).
  */
 function BlogIndex({ blogs = [], pagination }) {
-    console.log('Blogs:', blogs);
     return (
         <>
             <Head title="Blog - Cercle des Lauréats de Belgique" />

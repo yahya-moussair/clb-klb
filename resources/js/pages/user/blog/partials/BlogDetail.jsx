@@ -1,6 +1,3 @@
-import { Link } from '@inertiajs/react';
-import TransText from '@/components/TransText';
-
 /**
  * Renders a single blog post: back link, date, title, image, excerpt, and full body (TipTap HTML in prose).
  * Uses current locale translation (passed from server); static labels use TransText.
@@ -12,12 +9,10 @@ export default function BlogDetail({ blog }) {
         return null;
     }
 
-    console.log('BlogDetail blog:', blog);
-
-    const { title, excerpt, body, image_url, published_at } = {...blog, "excerpt": "hell oworld "};
+    const { title, excerpt, body, image_url, published_at } = blog;
 
     return (
-        <article className="container text-center min-h-[calc(100vh-237px)] py-10 sm:py-14">
+        <article className="container min-h-[calc(100vh-237px)] py-10 text-center sm:py-14">
             <div className="">
                 {published_at && (
                     <p className="mb-3 text-sm text-muted-foreground">
